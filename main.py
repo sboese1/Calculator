@@ -40,29 +40,36 @@ def square(x):
 
 def calculate():
     textbox_input = textbox.get("1.0", END)
-    temp = textbox_input.split(tracker)
+    counter = 0
+    try:
+        temp = textbox_input.split(tracker)
+        counter = 1
+    except:
+        textbox.delete('1.0', END)
+        textbox.insert(END, "Error. Sign not selected")
 
     answer = 0
 
-    if tracker == '+':
-        answer = add(int(temp[0]), int(temp[1]))
-    elif tracker == '-':
-        answer = subtract(int(temp[0]), int(temp[1]))
-    elif tracker == 'x':
-        answer = multiply(int(temp[0]), int(temp[1]))
-    elif tracker == '/':
-        answer = divide(float(temp[0]), float(temp[1]))
-    elif tracker == '*':
-        answer = square(int(temp[0]))
+    if counter == 1:
+        if tracker == '+':
+            answer = add(int(temp[0]), int(temp[1]))
+        elif tracker == '-':
+            answer = subtract(int(temp[0]), int(temp[1]))
+        elif tracker == 'x':
+            answer = multiply(int(temp[0]), int(temp[1]))
+        elif tracker == '/':
+            answer = divide(float(temp[0]), float(temp[1]))
+        elif tracker == '*':
+            answer = square(int(temp[0]))
 
-    textbox.delete('1.0', END)
-    textbox.insert(END, answer)
+        textbox.delete('1.0', END)
+        textbox.insert(END, answer)
 
-    btn_8["state"] = "active"
-    btn_12["state"] = "active"
-    btn_13["state"] = "active"
-    btn_14["state"] = "active"
-    btn_15["state"] = "active"
+        btn_8["state"] = "active"
+        btn_12["state"] = "active"
+        btn_13["state"] = "active"
+        btn_14["state"] = "active"
+        btn_15["state"] = "active"
 
 
 
